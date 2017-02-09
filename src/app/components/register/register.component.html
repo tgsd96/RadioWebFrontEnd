@@ -1,0 +1,21 @@
+<md-card class="container col-sm-4 ">
+  <div id="headings" class="text-center">
+    <h2>Register to RadioWeb</h2>
+    <p *ngIf="error">{{errorMessage}}</p>
+  </div>
+    <form [formGroup]="registerForm" (ngSubmit)="register($event)">
+      <div class="input-group "><input type="text" class="form-control" placeholder="first name" formControlName="first"><input type="text" class="form-control"placeholder="last name" formControlName="last"></div>
+      <div class="form-group"><input type="email"class="form-control" placeholder="you@domain.com" formControlName="email"></div>
+      <div class="form-group"><input type="password"class="form-control"placeholder="******" formControlName="password"></div>
+      <div class="form-group"><input type="password"class="form-control" placeholder="****** again" formControlName="again"></div>
+      <div class="form-group">
+       
+        <select name="profession" id="" class="form-control"placeholder="profession" formControlName="prof">
+        <option value="Doctor">Doctor</option>
+        <option value="Student">Student</option>
+        <option value="Professor">Professor</option>
+        <option value="Company">Company</option>
+        </select></div>
+      <button type="submit" class="btn btn-success form-control" >Register</button>
+    </form>
+</md-card>
