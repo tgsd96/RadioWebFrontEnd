@@ -3,6 +3,7 @@
   <h2 >Sign in to RadioWeb</h2>
   <h6>Enter your <b>email address</b> and <b>password</b></h6>
   </div>
+  <h6 *ngIf="error">{{errormessage}}</h6>
   <form name="form" [formGroup] = "loginForm" (ngSubmit) = "login($event)" (submit)="prevDft($event)">
   <div class="form-group">
     <input name="email" type="email" formControlName="email" class="form-control" id="exampleInputEmail1" placeholder="you@domain.com">
@@ -15,4 +16,7 @@
   <input type="checkbox" id="keepSignedIn" class="form-check-inline"><span for="keepSignedIn">Keep me signed in</span>
   </div>
 </form>
+<div class="text-center">
+  <p> <a routerLink="/register" routerLinkActive="active" >Register</a> for RadioWeb</p>
+</div>
 </md-card>

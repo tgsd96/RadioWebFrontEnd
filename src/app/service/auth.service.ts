@@ -19,8 +19,18 @@ login(username: string, password: string):Observable<boolean>{
 
   return this.http.post("https://localhost:8080/api/test",{username:username,password:password})
   .map((response:Response) => {
-    console.log(response);
-    return true;
+    if(response.json())
+    {
+        var resp = response.json();
+        if (resp.token == ""){
+          return false;
+        }
+        console.log(resp.token);
+        this.token = resp.token;
+        localStorage.setItem("currentUser",resp.token);
+        return true;
+    }
+    return false;  
   });
 }
 register(user: User):Observable<Response>{

@@ -9,7 +9,8 @@ import { LandingComponentComponent } from './components/landing-component/landin
 import { LoginComponentComponent } from './components/login-component/login-component.component';
 import {AppRoutingModule} from './app-routing.module';
 import { RegisterComponent } from './components/register/register.component'
-import {AuthService} from './service/auth.service'
+import {AuthService} from './service/auth.service';
+import { DashboardComponent } from './components/dashboard/dashboard.component'
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {AuthService} from './service/auth.service'
     LandingComponentComponent,
     LoginComponentComponent,
     RegisterComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
