@@ -10,7 +10,9 @@ import { LoginComponentComponent } from './components/login-component/login-comp
 import {AppRoutingModule} from './app-routing.module';
 import { RegisterComponent } from './components/register/register.component'
 import {AuthService} from './service/auth.service';
-import { DashboardComponent } from './components/dashboard/dashboard.component'
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { TeamComponent } from './components/team/team.component';
+import { ProjectComponent } from './components/project/project.component'
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component'
     LoginComponentComponent,
     RegisterComponent,
     DashboardComponent,
+    TeamComponent,
+    ProjectComponent,
   ],
   imports: [
     BrowserModule,
