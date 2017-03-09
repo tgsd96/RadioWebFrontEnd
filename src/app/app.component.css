@@ -1,3 +1,14 @@
-#main-content{
-    padding-top: 50px;
+nav{
+    background-color: #574d4d;
+}
+.navbar-light .navbar-nav .nav-link
+{
+    color: white;
+}
+.navbar-light  .navbar-brand
+{
+    color: white;
+}
+.active{
+    text-decoration: underline;
 }
