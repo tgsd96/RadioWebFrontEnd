@@ -27,18 +27,20 @@ export class LoginComponentComponent implements OnInit {
   login(event){
     console.log(this.loginForm.get('email').value);
     this.error = false;
-    this.authservice.login(this.loginForm.get('email').value,this.loginForm.get('password').value)
-    .subscribe(result=>{
-      if(result==true){
-        this.router.navigate(['/']);
-        console.log(result);
-      }
-      else{
-        console.log("error");
-        this.errormessage = "Wrong username/password";
-        this.error = true;
-      }
-    })
+    if(this.authservice.login(this.loginForm.get('email').value,this.loginForm.get('password').value)){
+      this.router.navigate(['/dashboard']);
+    }
+    // .subscribe(result=>{
+    //   if(result==true){
+    //     this.router.navigate(['/']);
+    //     console.log(result);
+    //   }
+    //   else{
+    //     console.log("error");
+    //     this.errormessage = "Wrong username/password";
+    //     this.error = true;
+    //   }
+    // })
     // this.authservice.ping().subscribe(result=>{
     // console.log(result);
     // });
