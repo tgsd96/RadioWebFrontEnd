@@ -4,7 +4,7 @@
   <h6>Enter your <b>email address</b> and <b>password</b></h6>
   </div>
   <h6 *ngIf="error">{{errormessage}}</h6>
-  <form name="form" [formGroup] = "loginForm" (ngSubmit) = "login($event)" (submit)="prevDft($event)">
+  <form name="form" [formGroup] = "loginForm" (ngSubmit) = "login($event)">
   <div class="form-group">
     <input name="email" type="email" formControlName="email" class="form-control" id="exampleInputEmail1" placeholder="you@domain.com">
   </div>

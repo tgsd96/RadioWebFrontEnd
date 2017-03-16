@@ -30,26 +30,26 @@ export class LoginComponentComponent implements OnInit {
     if(this.authservice.login(this.loginForm.get('email').value,this.loginForm.get('password').value)){
       this.router.navigate(['/dashboard']);
     }
-    // .subscribe(result=>{
-    //   if(result==true){
-    //     this.router.navigate(['/']);
-    //     console.log(result);
-    //   }
-    //   else{
-    //     console.log("error");
-    //     this.errormessage = "Wrong username/password";
-    //     this.error = true;
-    //   }
-    // })
-    // this.authservice.ping().subscribe(result=>{
-    // console.log(result);
-    // });
-   // event.preventDefault();
-    return false;
+  //   .subscribe(result=>{
+  //     if(result==true){
+  //       this.router.navigate(['/']);
+  //       console.log(result);
+  //     }
+  //     else{
+  //       console.log("error");
+  //       this.errormessage = "Wrong username/password";
+  //       this.error = true;
+  //     }
+  //   })
+  //   this.authservice.ping().subscribe(result=>{
+  //   console.log(result);
+  //   });
+  //  event.preventDefault();
+  //  return false;
   }
 
-  public prevDft(event:Event):void{
-    event.preventDefault();
-  }
+  // public prevDft(event:Event):void{
+  //   event.preventDefault();
+  // }
 
 }

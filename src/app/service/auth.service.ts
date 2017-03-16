@@ -18,6 +18,8 @@ login(username: string, password: string):boolean{
   //let headers = new Headers({'Content-Type':'application/json'});
   //let options = new RequestOptions({headers:headers});
   this.loginEvent.emit(true);
+  //localStorage.setItem("currentUser","3e3e3e");
+  //this.token = "3e3e3e3e";
   return true;
 
   // return this.http.post("https://localhost:8080/api/test",{username:username,password:password})
