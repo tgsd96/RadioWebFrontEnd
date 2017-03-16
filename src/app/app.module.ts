@@ -13,7 +13,8 @@ import {AuthService} from './service/auth.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TeamComponent } from './components/team/team.component';
 import { ProjectComponent } from './components/project/project.component';
-import { MarkerComponent } from './components/marker/marker.component'
+import { MarkerComponent } from './components/marker/marker.component';
+import { DashviewComponent } from './components/dashview/dashview.component'
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { MarkerComponent } from './components/marker/marker.component'
     TeamComponent,
     ProjectComponent,
     MarkerComponent,
+    DashviewComponent,
   ],
   imports: [
     BrowserModule,

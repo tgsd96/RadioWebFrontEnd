@@ -1,9 +1,12 @@
 .jumbotron{
     margin-top: 0px;
-    height: 400px;
+    min-height: 500px;
     background-color: #574d4d;
     color: white;
 }
 .col-sm-6{
     margin: 10px;
+}
+#main-content{
+    margin-top: 0px;
 }

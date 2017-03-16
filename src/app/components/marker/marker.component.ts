@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs/Rx'
 
 @Component({
   selector: 'app-marker',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./marker.component.css']
 }) 
 export class MarkerComponent implements OnInit {
-
-  constructor() { }
+  id ;
+  constructor(private router:Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe(
+      (param) => {this.id = param["id"]; console.log(this.id);}
+    )
   }
 
 }

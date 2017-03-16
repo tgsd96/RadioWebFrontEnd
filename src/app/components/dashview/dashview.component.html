@@ -1,0 +1,6 @@
+<h1 class="display-3">Available Datasets</h1>
+    <ul class="list-group">
+      <a *ngFor = "let item of datasets" [routerLink] = "['data', item.id]">
+      <li  class="list-group-item">{{item.title}}</li>
+      </a>
+    </ul>

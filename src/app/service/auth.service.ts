@@ -14,31 +14,31 @@ export class AuthService {
     this.token = currentUser && currentUser.token;
   }
 
-login(username: string, password: string):boolean{
+login(username: string, password: string):Observable<boolean>{
   //let headers = new Headers({'Content-Type':'application/json'});
   //let options = new RequestOptions({headers:headers});
-  this.loginEvent.emit(true);
   //localStorage.setItem("currentUser","3e3e3e");
   //this.token = "3e3e3e3e";
-  return true;
+  //return true;
 
-  // return this.http.post("https://localhost:8080/api/test",{username:username,password:password})
-  // .map((response:Response) => {
-  //   if(response.json())
-  //   {
-  //       var resp = response.json();
-  //       if (resp.token == ""){
-  //         this.loginEvent.emit(false);
-  //         return false;
-  //       }
-  //       console.log(resp.token);
-  //       this.token = resp.token;
-  //       localStorage.setItem("currentUser",resp.token);
-  //       this.loginEvent.emit(true);
-  //       return true;
-  //   }
-  //   return false;  
-  //});
+  return this.http.post("https://localhost:8080/api/test",{username:username,password:password})
+  .map((response:Response) => {
+    if(response.json())
+    {
+        var resp = response.json();
+        console.log(resp);
+        if (resp.token == ""){
+          this.loginEvent.emit(false);
+          return false;
+        }
+        console.log(resp.token);
+        this.token = resp.token;
+        localStorage.setItem("currentUser",resp.token);
+        this.loginEvent.emit(true);
+        return true;
+    }
+    return false;  
+  });
 
 }
 register(user: User):Observable<Response>{

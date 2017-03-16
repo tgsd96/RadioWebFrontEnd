@@ -7,6 +7,8 @@ import {RegisterComponent} from './components/register/register.component'
 import {DashboardComponent} from './components/dashboard/dashboard.component'
 import {TeamComponent} from './components/team/team.component'
 import {ProjectComponent} from './components/project/project.component'
+import {MarkerComponent} from './components/marker/marker.component'
+import {DashviewComponent} from './components/dashview/dashview.component'
 const routes: Routes = [
   {
     path: '',
@@ -26,7 +28,17 @@ const routes: Routes = [
   {
     path : 'dashboard',
     component : DashboardComponent,
-    
+    children : [
+    {
+    path : 'data/:id',
+    component : MarkerComponent
+    },
+    {
+      path : '',
+      component : DashviewComponent
+    }
+
+    ]
   },
   {
     path : 'team',
@@ -35,7 +47,8 @@ const routes: Routes = [
   {
     path : 'projects',
     component: ProjectComponent
-  }
+  },
+  
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

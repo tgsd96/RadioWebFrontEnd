@@ -7,11 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  datasets = [{
-    "title" : "data 1"
-  }
-  ];
-
   constructor() { }
 
   ngOnInit() {
