@@ -5,12 +5,18 @@
   </div>
     <form [formGroup]="registerForm" (ngSubmit)="register($event)">
       <div class="input-group "><input type="text" class="form-control" placeholder="first name" formControlName="first"><input type="text" class="form-control"placeholder="last name" formControlName="last"></div>
-      <div class="form-group"><input type="email"class="form-control" placeholder="you@domain.com" formControlName="email"></div>
-      <div class="form-group"><input type="password"class="form-control"placeholder="******" formControlName="password"></div>
-      <div class="form-group"><input type="password"class="form-control" placeholder="****** again" formControlName="again"></div>
       <div class="form-group">
-       
-        <select name="profession" id="" class="form-control"placeholder="profession" formControlName="prof">
+        <label for="email">Email</label>
+        <input type="email"class="form-control" placeholder="you@domain.com" formControlName="email" id="email"></div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control"placeholder="******" formControlName="password" id="password"></div>
+      <div class="form-group">
+        <label for="passwordA">Enter the password again</label>
+        <input type="password"class="form-control" placeholder="******" formControlName="again" id="passwordA"></div>
+      <div class="form-group">
+        <label for="prof">Enter your Profession</label>
+        <select name="profession" id="" class="form-control"placeholder="profession" formControlName="prof" id="prof">
         <option value="Doctor">Doctor</option>
         <option value="Student">Student</option>
         <option value="Professor">Professor</option>

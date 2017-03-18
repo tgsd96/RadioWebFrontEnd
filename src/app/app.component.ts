@@ -11,8 +11,10 @@ import { AuthService } from './service/auth.service';
 })
 export class AppComponent implements OnInit {
   title = 'RadioWeb!';
+  user;
   public loggedin: boolean;
   isScrolled = false;
+  isover = false;
   currPos = 0;
   startPos = 0;
   changePos = 10;
@@ -27,8 +29,15 @@ export class AppComponent implements OnInit {
     else{
       this.loggedin = false;
     }
+    this.user = this.authService.username;
     this.authService.loginEvent.subscribe(
-      data => this.loggedin = data
+      data => {
+        this.loggedin = data;
+        if(data){
+          console.log("going to places");
+          this.router.navigate(['/dashboard']);
+        }
+      }
     );
   }
     
@@ -46,6 +55,11 @@ export class AppComponent implements OnInit {
       this.isScrolled =true;
     }else{
       this.isScrolled =false;
+    }
+    if(this.currPos>=500){
+      this.isover = true;
+    }else{
+      this.isover = false;
     }
   }
 }

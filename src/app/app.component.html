@@ -1,35 +1,35 @@
-
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded" [ngClass] = "{'scrolled' : isScrolled, 'fixed-top' : isScrolled}">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="navbar-brand" routerLink="/">Home</a>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/team" routerLinkActive="active">Team</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/projects" routerLinkActive="active">Projects</a>
-      </li>
+<div>
+  <header class="header-6" [ngClass] = "{'scrolled' : isScrolled, 'fixed-top' : isScrolled, 'over' : isover}">
+    <div class="branding"><a class="navbar-brand" routerLink="/">RadioWeb</a></div>
+    <div class="header-nav">
+            <a routerLink="/team" routerLinkActive="active" class="nav-link nav-text">Team</a>
+            <a routerLink="/projects" routerLinkActive="active" class="nav-link nav-text" >Projects</a>
+        </div>
+    <div class="header-actions">
+        <a  class="nav-link nav-text" routerLink="/login" routerLinkActive="active" *ngIf="!loggedin">Login</a>
+        <a class="nav-link nav-text" routerLink="/register" routerLinkActive="active" *ngIf="!loggedin">Sign Up</a>
+          <clr-dropdown *ngIf="loggedin">
+      <button class="btn btn-info" clrDropdownToggle>
+          {{user}}
+      </button>
+      <div class="dropdown-menu">
+          <label class="dropdown-header">Options</label>
+          <a href="..." clrDropdownItem>Settings</a>
+          <a href="..." clrDropdownItem>Help</a>
+          <div class="dropdown-divider"></div>
+          <a href="" clrDropdownItem (click) = "logout()">logout</a>
+      </div>
+      </clr-dropdown>
+        </div>
+  </header>
+  <nav class="subnav" *ngIf="loggedin">
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link active" href="" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+        </li>
     </ul>
-    <ul class="navbar-nav">
-      <li class="nav-item" *ngIf="!loggedin">
-        <a  class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
-      </li>
-      <li class="nav-item" *ngIf="!loggedin">
-        <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
-      </li>
-      <li class="nav-item" *ngIf="loggedin">
-        <a  class="nav-link" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-      </li>
-      <li class="nav-item" *ngIf="loggedin">
-        <a  class="nav-link" (click) = "logout()">Logout</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-<div id="main-content">
+  </nav>
+<div id="main-content" class="content-container">
 <router-outlet></router-outlet>
+</div>
 </div>

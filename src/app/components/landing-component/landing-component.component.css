@@ -1,7 +1,7 @@
 .jumbotron{
-    margin-top: 0px;
+    border-radius: 0px;
     min-height: 500px;
-    background-color: #574d4d;
+    background-color: #007CBB;
     color: white;
 }
 .col-sm-6{
@@ -9,4 +9,7 @@
 }
 #main-content{
     margin-top: 0px;
+}
+.jumbotron h1,h2{
+    color: white;
 }

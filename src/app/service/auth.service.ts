@@ -7,11 +7,12 @@ import {User} from '../models/user'
 @Injectable()
 export class AuthService {
   public token:string;
-  public api_url ="localhost:8000"; 
+  public api_url ="localhost:8000";
+  public username = "Tushar"; 
   loginEvent = new EventEmitter<boolean>();
   constructor(private http:Http) {
-    var currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.token = currentUser && currentUser.token;
+    var currentUser =localStorage.getItem('currentUser');
+    this.token = currentUser;
   }
 
 login(username: string, password: string):Observable<boolean>{
@@ -37,7 +38,7 @@ login(username: string, password: string):Observable<boolean>{
         this.loginEvent.emit(true);
         return true;
     }
-    return false;  
+    // return false;  
   });
 
 }

@@ -29,7 +29,7 @@ export class LoginComponentComponent implements OnInit {
     this.error = false;
     this.authservice.login(this.loginForm.get('email').value,this.loginForm.get('password').value).subscribe(result=>{
       if(result==true){
-        this.router.navigate(['/']);
+        //this.router.navigate(['dashboard']);
         console.log(result);
       }
       else{

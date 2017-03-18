@@ -1,6 +1,8 @@
+<div class="card col-sm-8">
 <h1 class="display-3">Available Datasets</h1>
-    <ul class="list-group">
+      <ul>
       <a *ngFor = "let item of datasets" [routerLink] = "['data', item.id]">
-      <li  class="list-group-item">{{item.title}}</li>
+      <div class="card-block">{{item.title}}</div>
       </a>
-    </ul>
+      </ul>
+      </div>

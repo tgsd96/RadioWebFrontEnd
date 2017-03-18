@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
+import { ClarityModule } from 'clarity-angular';
 
 import { AppComponent } from './app.component';
 import { LandingComponentComponent } from './components/landing-component/landing-component.component';
@@ -34,7 +35,8 @@ import { DashviewComponent } from './components/dashview/dashview.component'
     HttpModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    MaterialModule.forRoot(),
+    MaterialModule,
+    ClarityModule.forRoot()
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

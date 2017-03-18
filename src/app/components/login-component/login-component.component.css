@@ -1,7 +1,5 @@
-
-.container{
-    margin-top: 80px;
-    padding: 20px;
+body{
+    background-color: #F9F9F9;
 }
 #headings{
     padding: 30px;
@@ -12,5 +10,4 @@
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    margin-top: 5px;
 }
