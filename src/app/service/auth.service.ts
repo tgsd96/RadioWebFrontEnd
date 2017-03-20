@@ -7,8 +7,8 @@ import {User} from '../models/user'
 @Injectable()
 export class AuthService {
   public token:string;
-  public api_url ="localhost:8000";
-  public username = "Tushar"; 
+  public api_url ="http://138.197.75.58:8888";
+  public username = "Tushar";
   loginEvent = new EventEmitter<boolean>();
   constructor(private http:Http) {
     var currentUser =localStorage.getItem('currentUser');
@@ -22,7 +22,7 @@ login(username: string, password: string):Observable<boolean>{
   //this.token = "3e3e3e3e";
   //return true;
 
-  return this.http.post("https://localhost:8080/api/test",{username:username,password:password})
+  return this.http.post(this.api_url+"/api/test",{username:username,password:password})
   .map((response:Response) => {
     if(response.json())
     {
@@ -38,13 +38,13 @@ login(username: string, password: string):Observable<boolean>{
         this.loginEvent.emit(true);
         return true;
     }
-    // return false;  
+    // return false;
   });
 
 }
 register(user: User):Observable<Response>{
 
-  return this.http.post("https://localhost:8080/api/register",user)
+  return this.http.post(this.api_url+"api/register",user)
   .map((response:Response)=>{
     console.log(response);
     return response;
