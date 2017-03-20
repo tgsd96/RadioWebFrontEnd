@@ -7,7 +7,8 @@ import {User} from '../models/user'
 @Injectable()
 export class AuthService {
   public token:string;
-  public api_url ="http://138.197.75.58:8888";
+  // public api_url ="http://138.197.75.58:8888";
+  public api_url ="https://localhost:8080";
   public username = "Tushar";
   loginEvent = new EventEmitter<boolean>();
   constructor(private http:Http) {
@@ -44,7 +45,7 @@ login(username: string, password: string):Observable<boolean>{
 }
 register(user: User):Observable<Response>{
 
-  return this.http.post(this.api_url+"api/register",user)
+  return this.http.post(this.api_url+"/api/register",user)
   .map((response:Response)=>{
     console.log(response);
     return response;
