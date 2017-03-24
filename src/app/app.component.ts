@@ -24,16 +24,23 @@ export class AppComponent implements OnInit {
     //Add 'implements OnInit' to the class.
     if(localStorage.getItem("currentUser")){
       this.loggedin = true;
+      var store = localStorage.getItem("currentUser")
+      console.log(store)
+      var user = JSON.parse(store);
+      this.user = user["username"];
+      this.authService.username = user["username"];
+      this.authService.token = user["token"];
       this.router.navigate(['/dashboard']);
     }
     else{
       this.loggedin = false;
     }
-    this.user = this.authService.username;
+    //this.user = this.authService.username;
     this.authService.loginEvent.subscribe(
       data => {
         this.loggedin = data;
         if(data){
+          this.user = this.authService.username;
           console.log("going to places");
           this.router.navigate(['/dashboard']);
         }

@@ -6,10 +6,10 @@
             <a routerLink="/projects" routerLinkActive="active" class="nav-link nav-text" >Projects</a>
         </div>
     <div class="header-actions">
-        <a  class="nav-link nav-text" routerLink="/login" routerLinkActive="active" *ngIf="!loggedin">Login</a>
+        <a  class="nav-link nav-text" routerLink="/login" routerLinkActive="active" *ngIf="!loggedin">Log In</a>
         <a class="nav-link nav-text" routerLink="/register" routerLinkActive="active" *ngIf="!loggedin">Sign Up</a>
           <clr-dropdown *ngIf="loggedin">
-      <button class="btn btn-info" clrDropdownToggle>
+      <button class="btn btn-primary" clrDropdownToggle>
           {{user}}
       </button>
       <div class="dropdown-menu">

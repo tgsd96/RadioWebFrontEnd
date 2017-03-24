@@ -48,9 +48,14 @@ export class RegisterComponent implements OnInit {
     this.user.prof = this.registerForm.get('prof').value;
 
     this.authservice.register(this.user)
-      .subscribe((result)=>{
-          this.error = true;
-          this.errorMessage = "Contacted Server";
+      .subscribe((result:Object)=>{
+        if(result["status"]==false)
+          {this.error = true;
+          this.errorMessage = result["message"];
+          this.registerForm.reset;}
+          else{
+            
+          }
       });
 
 

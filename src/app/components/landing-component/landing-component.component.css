@@ -1,12 +1,32 @@
 .jumbotron{
     border-radius: 0px;
     min-height: 500px;
-    background-color: #007CBB;
+    background-color: #0069ff;
     color: white;
 }
 .col-sm-6{
     margin: 10px;
 }
 #main-content{
-    margin-top: 0px;
+    margin-top: -20px;
+}
+.content-container{
+    margin-top : -20px;
+}
+h2{
+    color: #0069ff;
+}
+.display-3, .display-6{
+    color: white;
+}
+.center-block{
+    margin: auto;
+    margin-top : 100px;
+    margin-left: 100px;
+}
+p{
+    color: #A49898;
+}
+h5{
+    color: #0069ff;
 }

@@ -1,8 +1,45 @@
-<div class="card col-sm-8">
-<h1 class="display-3">Available Datasets</h1>
-      <ul>
-      <a *ngFor = "let item of datasets" [routerLink] = "['data', item.id]">
-      <div class="card-block">{{item.title}}</div>
-      </a>
+<div>
+<button class="btn btn-success" style="float: right;"(click)="opened = true">Add </button>
+<h3 class="display-4">Datasets</h3>
+    <clr-modal [(clrModalOpen)]="opened" [clrModalSize]="'xl'">
+    <h3 class="modal-title">Upload dataset</h3>
+    <div class="modal-body">
+        <!--<p>But not much to say...</p>-->
+        <div ng2FileDrop
+                 [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
+                 [uploader] = "uploader"
+                 (fileOver)="fileOverBase($event)"
+                 class="well my-drop-zone">
+                Drop your files here
+            </div>
+            <br>
+      <input type="file" ng2FileSelect [uploader]="uploader" multiple  /><br/>
+      <h3>Upload queue</h3>
+      <p>Queue length: {{ uploader?.queue?.length }}</p>
+      <ul class="list">
+            <li class="list-item" *ngFor = "let item of uploader.queue">{{item.file.name}}</li>
       </ul>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline" (click)="opened = false">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="opened = false">Ok</button>
+    </div>
+</clr-modal>
+      <table class="table">
+            <thead>
+                  <tr>
+                        <th>Name</th>
+                        <th>Status</th>
+                        <th>Posted</th>
+                  </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor = "let item of datasets">
+                  <td> <a [routerLink] = "['data', item.id]">{{item.name}}</a></td>
+                  <td>active</td>
+                  <td>{{item.date}}</td>
+            </tr>
+            </tbody>
+      </table>
+      <!--<button class="btn btn-primary" (click) = "checkToken()">Check Token</button>-->
       </div>

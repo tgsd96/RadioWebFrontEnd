@@ -1,0 +1,12 @@
+<div class="row">
+      <div class="col-sm-6">
+          <h2>Who we are?</h2><br>
+          <h6>INNOVATIVE</h6>
+          <p>Founded in 2016, ours is a India-based company exploring the use of deep learning in medical field.</p>
+          <h6>STRONG TEAMWORK</h6>
+          <p>Our team is a group of academicians and researchers met while working at Panjab University working on different projects. They eventually shifted on deep machine learning realizing that it is the future and could be applied to different real-life problems especially in the medical field. Our solutions aims to help doctors and patients by providing quality healthcare to every person.</p>
+          <h6>ENTERPRISING</h6>
+          <p>We are currently working with India's top hospitals like PGIMS, Medanta, Fortis Hospital to collect medical data and develop healthcare solution based on deep machine learning. We are also prviding a portal where new radiologists can enhance their interpretation skills using experience of others incorporated in our vast annotated dataset. These solutions will assits them in diagnosing diseases in patients.</p>
+      </div>
+      <div class="col-sm-6"></div>
+    </div>

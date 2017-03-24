@@ -1,19 +1,18 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import {Http, Headers, Response,RequestOptions} from '@angular/http';
 import {Observable} from 'rxjs';
+import {environment} from "../../environments/environment"
 import 'rxjs/add/operator/map'
 import {User} from '../models/user'
 
 @Injectable()
 export class AuthService {
   public token:string;
-  // public api_url ="http://138.197.75.58:8888";
-  public api_url ="https://localhost:8080";
-  public username = "Tushar";
+//  public api_url ="http://138.197.75.58:8888";
+  public api_url = environment.api_url;
+  public username;
   loginEvent = new EventEmitter<boolean>();
   constructor(private http:Http) {
-    var currentUser =localStorage.getItem('currentUser');
-    this.token = currentUser;
   }
 
 login(username: string, password: string):Observable<boolean>{
@@ -34,8 +33,11 @@ login(username: string, password: string):Observable<boolean>{
           return false;
         }
         console.log(resp.token);
+        console.log(resp.username);
+        this.username = resp.username;
         this.token = resp.token;
-        localStorage.setItem("currentUser",resp.token);
+        var user = {"username" : resp.username, "token" : resp.token}
+        localStorage.setItem("currentUser",JSON.stringify(user));
         this.loginEvent.emit(true);
         return true;
     }
@@ -43,12 +45,24 @@ login(username: string, password: string):Observable<boolean>{
   });
 
 }
-register(user: User):Observable<Response>{
+register(user: User):Observable<any>{
 
   return this.http.post(this.api_url+"/api/register",user)
   .map((response:Response)=>{
+    var resp = response.json();
+    if(resp.token == ""){
+      console.log("Getting in wrong thing")
+      this.loginEvent.emit(false);
+      return { "message" : resp.message, "status": false};
+    }
+    this.token = resp.token;
+    this.username = resp.username;
+    var user = {"username" : resp.username, "token" : resp.token}
+    localStorage.setItem("currentUser",JSON.stringify(user));
+    //localStorage.setItem("currentUser",r);
+    this.loginEvent.emit(true);
     console.log(response);
-    return response;
+    return { "message" : resp.message, "status" : true};
   });
 }
 ping(){
@@ -57,7 +71,16 @@ ping(){
     return response;
   })
 }
-
+checkToken(){
+  console.log("Checking token again")
+  var toke = { "token" : this.token};
+  console.log(this.token)
+  var token = JSON.stringify(toke)
+  this.http.get(this.api_url+"/api/token", toke)
+  .map((response : Response)=>{
+    console.log(response)
+  })
+}
 logout():void{
   this.token = null;
   localStorage.removeItem('currentUser');
