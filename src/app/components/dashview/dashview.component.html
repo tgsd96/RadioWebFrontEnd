@@ -1,26 +1,31 @@
-<div>
-<button class="btn btn-success" style="float: right;"(click)="opened = true">Add </button>
+<div [ngClass] = "{ 'spinner' : spinner }">
 <h3 class="display-4">Datasets</h3>
+<button class="btn btn-success" style=""(click)="opened = true">Add </button>
     <clr-modal [(clrModalOpen)]="opened" [clrModalSize]="'xl'">
     <h3 class="modal-title">Upload dataset</h3>
     <div class="modal-body">
-        <!--<p>But not much to say...</p>-->
-        <div ng2FileDrop
-                 [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
-                 [uploader] = "uploader"
-                 (fileOver)="fileOverBase($event)"
-                 class="well my-drop-zone">
-                Drop your files here
-            </div>
-            <br>
-      <input type="file" ng2FileSelect [uploader]="uploader" multiple  /><br/>
-      <h3>Upload queue</h3>
-      <p>Queue length: {{ uploader?.queue?.length }}</p>
-      <ul class="list">
-            <li class="list-item" *ngFor = "let item of uploader.queue">{{item.file.name}}</li>
-      </ul>
+      <form method="POST" (ngSubmit) = "uploadImage()">
+        <div class="form-group">
+          <label for="datasetName">Dataset Name</label>
+          <input type="text" name="datasetName" id="datasetName" />
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea name="description" id="description" cols="15" rows="3"></textarea>
+        </div>
+      <input class="" type="file" id="file-select" name="photos[]" multiple (change) = "printFiles($event)">
+        <br/><h4 *ngIf = "statusFlag" [ngClass]="{'alert-success': onupload}" >{{uploadMessage}}</h4>
+      <div class="card" *ngIf="file!=null">
+            <ul class="card-block list">
+                  <li *ngFor = "let f of file">
+                        {{f.name}}
+                  </li>
+            </ul>
+      </div>
+      <button *ngIf="file!=null" class="btn btn-outline-primary" type = "submit" id="upload">Upload</button>
+      </form>
     </div>
-    <div class="modal-footer">
+      <div class="modal-footer">
         <button type="button" class="btn btn-outline" (click)="opened = false">Cancel</button>
         <button type="button" class="btn btn-primary" (click)="opened = false">Ok</button>
     </div>

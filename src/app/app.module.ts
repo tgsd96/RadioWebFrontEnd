@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { ClarityModule } from 'clarity-angular';
-import {FileUploadModule} from 'ng2-file-upload';
+
 
 import { AppComponent } from './app.component';
 import { LandingComponentComponent } from './components/landing-component/landing-component.component';
@@ -39,7 +39,6 @@ import { DashviewComponent } from './components/dashview/dashview.component'
     ReactiveFormsModule,
     MaterialModule,
     ClarityModule.forRoot(),
-    FileUploadModule
   ],
   providers: [AuthService,DatasetService],
   bootstrap: [AppComponent]

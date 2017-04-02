@@ -21,6 +21,7 @@ login(username: string, password: string):Observable<boolean>{
   //localStorage.setItem("currentUser","3e3e3e");
   //this.token = "3e3e3e3e";
   //return true;
+  
 
   return this.http.post(this.api_url+"/api/test",{username:username,password:password})
   .map((response:Response) => {
